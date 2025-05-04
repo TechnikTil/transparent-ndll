@@ -1,0 +1,13 @@
+project/obj/
+.DS_Store
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+
+# Examples of other files you might choose to ignore
+*.zip
+ndll/*/*.a
+ndll/*/*.so
+ndll/*/*.ndll
+ndll/*/*.hash
+ndll/

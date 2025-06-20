@@ -30,7 +30,13 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: TransparencyNdll-Windows
-          path: ndll/Platform64/
+          path: ndll/Windows64/
+
+      - name: Upload Artifact (x86)
+        uses: actions/upload-artifact@v4
+        with:
+          name: TransparencyNdll-Windows-x86
+          path: ndll/Windows/
 
   buildLinux:
     name: Build Linux Ndll
@@ -58,7 +64,13 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: TransparencyNdll-Linux
-          path: ndll/Platform64/
+          path: ndll/Linux64/
+
+      - name: Upload Artifact (x86)
+        uses: actions/upload-artifact@v4
+        with:
+          name: TransparencyNdll-Linux-x86
+          path: ndll/Linux/
 
 
   buildMacOS:
@@ -86,4 +98,4 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: TransparencyNdll-Mac
-          path: ndll/Platform64/
+          path: ndll/MacArm64/

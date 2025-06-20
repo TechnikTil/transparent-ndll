@@ -1,0 +1,82 @@
+name: Build
+
+on:
+  push:
+  workflow_dispatch:
+
+jobs:
+  buildWindows:
+    name: Build Windows Ndll
+    runs-on: windows-latest
+
+    steps:
+      - name: Clone Repository
+        uses: actions/checkout@v4
+
+      - name: Setup Haxe
+        uses: krdlab/setup-haxe@master
+        with:
+          haxe-version: latest
+
+      - name: Install Lime
+        run: haxelib install lime --quiet
+
+      - name: Compile Ndll
+        run: haxelib run lime rebuild . windows
+
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: TransparencyNdll-Windows
+          path: ndll/Platform64/
+
+  buildLinux:
+    name: Build Linux Ndll
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Clone Repository
+        uses: actions/checkout@v4
+
+      - name: Setup Haxe
+        uses: krdlab/setup-haxe@master
+        with:
+          haxe-version: latest
+
+      - name: Install Lime
+        run: haxelib install lime --quiet
+
+      - name: Compile Ndll
+        run: haxelib run lime rebuild . linux
+
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: TransparencyNdll-Linux
+          path: ndll/Platform64/
+
+
+  buildMacOS:
+    name: Build MacOS Ndll
+    runs-on: macos-latest
+
+    steps:
+      - name: Clone Repository
+        uses: actions/checkout@v4
+
+      - name: Setup Haxe
+        uses: krdlab/setup-haxe@master
+        with:
+          haxe-version: latest
+
+      - name: Install Lime
+        run: haxelib install lime --quiet
+
+      - name: Compile Ndll
+        run: haxelib run lime rebuild . mac
+
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: TransparencyNdll-Mac
+          path: ndll/Platform64/

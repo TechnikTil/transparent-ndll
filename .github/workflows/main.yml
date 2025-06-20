@@ -45,8 +45,9 @@ jobs:
         with:
           haxe-version: latest
 
-      - name: Install Haxe Libraries
+      - name: Install Libraries
         run: |
+          sudo apt-get -qq install gcc-multilib g++-multilib
           haxelib install lime --quiet
           haxelib install hxcpp --quiet
 

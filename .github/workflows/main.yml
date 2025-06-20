@@ -18,8 +18,10 @@ jobs:
         with:
           haxe-version: latest
 
-      - name: Install Lime
-        run: haxelib install lime --quiet
+      - name: Install Haxe Libraries
+        run: |
+          haxelib install lime --quiet
+          haxelib install hxcpp --quiet
 
       - name: Compile Ndll
         run: haxelib run lime rebuild . windows
@@ -43,8 +45,10 @@ jobs:
         with:
           haxe-version: latest
 
-      - name: Install Lime
-        run: haxelib install lime --quiet
+      - name: Install Haxe Libraries
+        run: |
+          haxelib install lime --quiet
+          haxelib install hxcpp --quiet
 
       - name: Compile Ndll
         run: haxelib run lime rebuild . linux
@@ -69,8 +73,10 @@ jobs:
         with:
           haxe-version: latest
 
-      - name: Install Lime
-        run: haxelib install lime --quiet
+      - name: Install Haxe Libraries
+        run: |
+          haxelib install lime --quiet
+          haxelib install hxcpp --quiet
 
       - name: Compile Ndll
         run: haxelib run lime rebuild . mac
